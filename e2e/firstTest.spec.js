@@ -1,19 +1,26 @@
+import testIDs from '../src/testIDs'
+
 describe('Example', () => {
   beforeEach(async () => {
     await device.reloadReactNative();
   });
 
-  it('should have welcome screen', async () => {
-    await expect(element(by.id('welcome'))).toBeVisible();
+  it('Home Screenが表示される', async () => {
+    await expect(element(by.id(testIDs.screen.Home))).toBeVisible();
   });
 
-  it('should show hello screen after tap', async () => {
-    await element(by.id('hello_button')).tap();
-    await expect(element(by.text('Hello!!!'))).toBeVisible();
+  it('button1を押下すると、page1が表示される', async () => {
+    await element(by.id(testIDs.button1)).tap();
+    // await expect(element(by.text('Hello!!!'))).toBeVisible();
   });
 
-  it('should show world screen after tap', async () => {
-    await element(by.id('world_button')).tap();
-    await expect(element(by.text('World!!!'))).toBeVisible();
+  it('button2を押下すると、page2が表示される', async () => {
+    await element(by.id(testIDs.button2)).tap();
+    // await expect(element(by.text('Hello!!!'))).toBeVisible();
+  });
+
+  it('button3を押下すると、page3が表示される', async () => {
+    await element(by.id(testIDs.button3)).tap();
+    // await expect(element(by.text('Hello!!!'))).toBeVisible();
   });
 });
