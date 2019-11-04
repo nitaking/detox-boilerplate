@@ -1,6 +1,8 @@
 import * as React from "react";
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import Colors from './components/Colors';
+import {NavigationScreenProp} from 'react-navigation';
+
+import Colors from '../Colors';
 import testIDs from '../testIDs';
 
 const Button = (props: { text: string, children?: React.ReactChildren, onPress: () => void, testID?: string }) => (
@@ -14,12 +16,16 @@ const Button = (props: { text: string, children?: React.ReactChildren, onPress: 
 );
 
 
-export default function Home() {
+export default function Home(props: NavigationScreenProp.navigate) {
+    const gotoPage1 = () => props.navigation.navigate('Page1')
+    const gotoPage2 = () => props.navigation.navigate('Page2')
+    const gotoPage3 = () => props.navigation.navigate('Page3')
+
     return (
         <View style={styles.container} testID={testIDs.screen.Home}>
-            <Button text="test1" onPress={() => {}} testID={testIDs.button1}/>
-            <Button text="test2" onPress={() => {}} testID={testIDs.button2}/>
-            <Button text="test3" onPress={() => {}} testID={testIDs.button3}/>
+            <Button text="test1" onPress={gotoPage1} testID={testIDs.button1}/>
+            <Button text="test2" onPress={gotoPage2} testID={testIDs.button2}/>
+            <Button text="test3" onPress={gotoPage3} testID={testIDs.button3}/>
        </View>
     )
 }
