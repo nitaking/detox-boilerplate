@@ -31,5 +31,17 @@
   "jest": {
     "preset": "react-native"
   },
-  "private": true
+  "private": true,
+  "detox": {
+    "configurations": {
+      "ios.sim.debug": {
+        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/DetoxBoilerplate.app",
+        "build": "xcodebuild -workspace ios/DetoxBoilerplate.xcworkspace -scheme DetoxBoilerplate -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+        "type": "ios.simulator",
+        "device": {
+          "type": "iPhone 11 Pro"
+        }
+      }
+    }
+  }
 }
